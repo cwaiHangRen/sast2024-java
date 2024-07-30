@@ -18,11 +18,14 @@ public class Wordle {
             s.status = GameStatus.LOST;
             s.chancesLeft --;
             int[] alphabet = new int[ALPHABET_SIZE];
+            boolean[] betabet = new boolean[ALPHABET_SIZE];
             for(int i = 0; i < ALPHABET_SIZE;i++){
                 alphabet[i] = 0;
+                betabet[i] = false;
             }
             for(int i = 0; i < WORD_LENGTH; i++){
                 alphabet[s.answer.charAt(i) - 'A']++;
+                betabet[s.answer.charAt(i) - 'A'] = true;
                 if(s.answer.charAt(i) == s.word.charAt(i)){
                     s.wordState[i] = Color.GREEN;
                     alphabet[s.answer.charAt(i) - 'A']--;
@@ -34,7 +37,7 @@ public class Wordle {
                         s.wordState[i] = Color.YELLOW;
                         alphabet[s.word.charAt(i) - 'A']--;
                     }
-                    else{
+                    else if(betabet[s.word.charAt((i))-'A']){
                         s.wordState[i] = Color.RED;
                     }
                 }
@@ -59,13 +62,17 @@ public class Wordle {
             }
         }
         else{
+            s.status = GameStatus.RUNNING;
             s.chancesLeft --;
             int[] alphabet = new int[ALPHABET_SIZE];
+            boolean[] betabet = new boolean[ALPHABET_SIZE];
             for(int i = 0; i < ALPHABET_SIZE;i++){
                 alphabet[i] = 0;
+                betabet[i] = false;
             }
             for(int i = 0; i < WORD_LENGTH; i++){
                 alphabet[s.answer.charAt(i) - 'A']++;
+                betabet[s.answer.charAt(i) - 'A'] = true;
                 if(s.answer.charAt(i) == s.word.charAt(i)){
                     s.wordState[i] = Color.GREEN;
                     alphabet[s.answer.charAt(i) - 'A']--;
@@ -77,7 +84,7 @@ public class Wordle {
                         s.wordState[i] = Color.YELLOW;
                         alphabet[s.word.charAt(i) - 'A']--;
                     }
-                    else{
+                    else if(betabet[s.word.charAt((i))-'A']){
                         s.wordState[i] = Color.RED;
                     }
                 }
