@@ -10,7 +10,7 @@ public class Wordle {
     // Guess `word` at state `s`
     public static State guess(State s) {
         // TODO begin
-        if(s.answer == null ? s.word == null : s.answer.equals(s.word)){
+        if(s.answer.equals(s.word)){
             s.status = GameStatus.WON;
             s.chancesLeft --;
             for(int i=0;i<WORD_LENGTH;i++){
