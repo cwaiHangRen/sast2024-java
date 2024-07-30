@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class ThreeSumClosest {
     public static int threeSumClosest(int[] nums, int target) {
-        int n = nums.length, ans = 0;
+        int n = nums.length, ans = 9999999;
         // TODO begin
         for(int i=0;i<n;++i){
             for(int j=i+1;j<n;++j){
