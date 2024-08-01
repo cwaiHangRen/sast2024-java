@@ -28,6 +28,9 @@ public class Wordle {
                 betabet[i] = false;
             }
             for(int i = 0; i < WORD_LENGTH; i++){
+                s.wordState[i] = Color.GRAY;
+            }
+            for(int i = 0; i < WORD_LENGTH; i++){
                 alphabet[s.answer.charAt(i) - 'A']++;
                 betabet[s.answer.charAt(i) - 'A'] = true;
                 if(s.answer.charAt(i) == s.word.charAt(i)){
@@ -74,6 +77,9 @@ public class Wordle {
             for(int i = 0; i < ALPHABET_SIZE;i++){
                 alphabet[i] = 0;
                 betabet[i] = false;
+            }
+            for(int i = 0; i < WORD_LENGTH; i++){
+                s.wordState[i] = Color.GRAY;
             }
             for(int i = 0; i < WORD_LENGTH; i++){
                 alphabet[s.answer.charAt(i) - 'A']++;
